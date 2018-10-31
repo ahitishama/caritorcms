@@ -51,10 +51,12 @@ app.use(function (req, res, next) {
 });
 //Set routes
 var pages =  require('./routes/pages.js');
+var users =  require('./routes/user.js');
 app.use('/pages',pages)
+app.use('/users',users)
+
 
 //Start the server
-var port =3000;
 var port =8080;
 app.listen(port,function(){
     console.log('Server running at ' +port)
