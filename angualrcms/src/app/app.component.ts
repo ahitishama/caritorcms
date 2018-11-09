@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angualrcms';
+  get front() {
+    if (localStorage.getItem("user") === "\"admin\"") {
+      return false;
+    }
+    return true;
+  }
 }

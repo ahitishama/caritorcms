@@ -2,21 +2,21 @@ var express = require('express');
 var router = express.Router();
 
 //Get Usser Model
-var user = require('../models/user')
+var User = require('../models/user')
 
 // post register
-router.get('/register',function(req,res){
+router.post('/register',function(req,res){
 
   var username = req.body.username; 
   var password = req.body.password; 
 
-   user.findOne({username: username},function(err,user){
+   User.findOne({username: username},function(err,user){
      if (err) console.log(err);
 
      if (user) {
        res.json("userExists");
      } else {
-       var user = new user({
+       var user = new User({
          username: username,
          password: password
        });
@@ -33,13 +33,21 @@ router.get('/register',function(req,res){
    });
 });
 
-// get a data
-router.get('/:slug',function(req,res){
-  var slug = req.params.slug;
-  page.findOne({slug: slug},function(err,page){
-    if (err) console.log(err);
-    res.json(page);
-  });
+// post login
+router.post('/login',function(req,res){
+
+  var username = req.body.username; 
+  var password = req.body.password; 
+
+   User.findOne({username: username, password: password},function(err,user){
+     if (err) console.log(err);
+
+     if (user) {
+       res.json(username);
+     } else {
+      res.json("invalidLogin");
+     }  
+   });
 });
 
 
