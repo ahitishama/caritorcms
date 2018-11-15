@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PageService } from './services/page.service';
@@ -16,6 +17,9 @@ import { AdminPagesComponent } from './components/admin-pages/admin-pages.compon
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { AdminAddPageComponent } from './components/admin-add-page/admin-add-page.component';
 import { AdminEditPageComponent } from './components/admin-edit-page/admin-edit-page.component';
+import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
+import { SidebarService } from './services/sidebar.service';
+import { AdminBannerComponent } from './components/admin-banner/admin-banner.component';
 
 
  const appRoutes: Routes = [
@@ -25,6 +29,8 @@ import { AdminEditPageComponent } from './components/admin-edit-page/admin-edit-
   {path: 'admin/pages', component: AdminPagesComponent},
   {path: 'admin/add-page', component: AdminAddPageComponent},
   {path: 'admin/edit-page/:id', component: AdminEditPageComponent},
+  {path: 'admin/sidebar', component: AdminSidebarComponent},
+  {path: 'admin/banner', component: AdminBannerComponent},
   {path: ':page', component: PagesComponent},
   {path: '', component: PagesComponent}
 ];
@@ -41,18 +47,22 @@ import { AdminEditPageComponent } from './components/admin-edit-page/admin-edit-
     AdminPagesComponent,
     AdminNavbarComponent,
     AdminAddPageComponent,
-    AdminEditPageComponent
+    AdminEditPageComponent,
+    AdminSidebarComponent,
+    AdminBannerComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)
     ],
   providers: [
     PageService,
     Title,
-    UserService
+    UserService,
+    SidebarService
   ],
   bootstrap: [AppComponent]
 })

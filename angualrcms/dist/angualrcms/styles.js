@@ -48,7 +48,7 @@ module.exports = "/*!\n * Bootstrap v3.3.7 (http://getbootstrap.com)\n * Copyrig
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\nnav.admin {\n  background: #337ab7;\n  position: fixed;\n  width: 150px;\n  top: 10;\n  left: 0;\n  margin-bottom: 0;\n  z-index: 1;\n}\nnav.admin li {\n  float: none;\n}\nnav.admin li a {\n  color: white !important;\n  font-weight: bold;\n}\ndiv.space {\n  padding-left: 180px;\n}\n"
 
 /***/ }),
 
